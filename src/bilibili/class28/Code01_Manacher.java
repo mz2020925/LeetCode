@@ -8,18 +8,21 @@ public class Code01_Manacher {
 		}
 		// "12132" -> "#1#2#1#3#2#"
 		char[] str = manacherString(s);
-		// 回文半径的大小
+		// 每个字符对应的子串回文半径数组
 		int[] pArr = new int[str.length];
 		int C = -1;
 		// 讲述中：R代表最右的扩成功的位置
-		// coding：最右的扩成功位置的，再下一个位置
+		// coding：回文右边界的再往右一个位置，最右的有效区是R-1位置。
 		int R = -1;
-		int max = Integer.MIN_VALUE;
-		for (int i = 0; i < str.length; i++) { // 0 1 2
-			// R第一个违规的位置，i>= R
-			// i位置扩出来的答案，i位置扩的区域，至少是多大。
+		int max = Integer.MIN_VALUE;  // 扩出来的最大值
+		for (int i = 0; i < str.length; i++) { // 每个位置都求回文半径
+			// 第一个大情况，i位置扩成功的区域已经有1，接下来扩不扩成功另说
+			// 第二个大情况的小情况1：严格不超过L边界，i位置扩成功的区域已经有pArr[2 * C - i]，接下来扩不成功另说
+			// 第二个大情况的小情况2：严格超过L边界，i位置扩成功的区域已经有R - i，接下来扩不成功另说
+			// 第二个大情况的小情况3：正好是L边界，i位置扩成功的区域已经有R - i，接下来能不能扩成功另说
+			// 上面四种情况综合成这一行代码，使代码更短，条理更清晰，不会影响时间复杂度。
 			pArr[i] = R > i ? Math.min(pArr[2 * C - i], R - i) : 1;
-			while (i + pArr[i] < str.length && i - pArr[i] > -1) {
+			while (i + pArr[i] < str.length && i - pArr[i] > -1) {  // 判断当前字符是否扩到超出左右边界
 				if (str[i + pArr[i]] == str[i - pArr[i]])
 					pArr[i]++;
 				else {
@@ -32,6 +35,7 @@ public class Code01_Manacher {
 			}
 			max = Math.max(max, pArr[i]);
 		}
+		// 上述代码处理的是插入特殊字符后的字符串，max对应的处理后字符串的最大回文半径，max-1对应的是原字符串的最大回文直径
 		return max - 1;
 	}
 
@@ -40,7 +44,7 @@ public class Code01_Manacher {
 		char[] res = new char[str.length() * 2 + 1];
 		int index = 0;
 		for (int i = 0; i != res.length; i++) {
-			res[i] = (i & 1) == 0 ? '#' : charArr[index++];
+			res[i] = (i & 1) == 0 ? '#' : charArr[index++];  // 偶数位插入特殊字符，奇数位插入原本字符
 		}
 		return res;
 	}
