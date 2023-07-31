@@ -49,7 +49,7 @@ public class Code01_Manacher {
 		return res;
 	}
 
-	// for test
+	// for test，传统方法暴力求出最大回文子串长度，然后下面回合Manacher算法的结果进行比较，发现完全一致。
 	public static int right(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
@@ -68,7 +68,7 @@ public class Code01_Manacher {
 		return max / 2;
 	}
 
-	// for test
+	// for test，创建一个随机字符串
 	public static String getRandomString(int possibilities, int size) {
 		char[] ans = new char[(int) (Math.random() * size) + 1];
 		for (int i = 0; i < ans.length; i++) {

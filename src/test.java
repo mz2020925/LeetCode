@@ -22,12 +22,15 @@ public class test {
         //     res[i] = listInt.get(i);
         // }
         // System.out.println(Arrays.deepToString(res));
-        String str = "12345";
-        System.out.println(str.charAt(2));
-        System.out.println(str.length());
-        System.out.println(str.substring(1));
-        System.out.println(str.substring(1,5));
-        System.out.println(str.substring(str.length()));
+//        String str = "12345";
+//        System.out.println(str.charAt(2));
+//        System.out.println(str.length());
+//        System.out.println(str.substring(1));
+//        System.out.println(str.substring(1,5));
+//        System.out.println(str.substring(str.length()));
+        int var = 0;
+        var = 5/2;
+        System.out.println(var);
     }
 
 
