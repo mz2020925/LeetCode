@@ -12,6 +12,7 @@ public class Code01_MorrisTraversal {
 		}
 	}
 
+	// 下面是常见的，标准的递归方式遍历二叉树
 	public static void process(Node root) {
 		if (root == null) {
 			return;
