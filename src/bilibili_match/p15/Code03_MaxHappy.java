@@ -1,34 +1,47 @@
 package bilibili_match.p15;
 
+import javax.xml.bind.annotation.XmlAnyAttribute;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Code03_MaxHappy {
+    public static class Info {
+        int laiMaxHappy;
+        int buMaxHappy;
 
-	public static int maxHappy(int[][] matrix) {
-		int[][] dp = new int[matrix.length][2];
-		boolean[] visited = new boolean[matrix.length];
-		int root = 0;
-		for (int i = 0; i < matrix.length; i++) {
-			if (i == matrix[i][0]) {
-				root = i;
-			}
-		}
-		process(matrix, dp, visited, root);
-		return Math.max(dp[root][0], dp[root][1]);
-	}
+        public Info(int lai, int bu) {
+            this.laiMaxHappy = lai;
+            this.buMaxHappy = bu;
+        }
+    }
 
-	public static void process(int[][] matrix, int[][] dp, boolean[] visited, int root) {
-		visited[root] = true;
-		dp[root][1] = matrix[root][1];
-		for (int i = 0; i < matrix.length; i++) {
-			if (matrix[i][0] == root && !visited[i]) {
-				process(matrix, dp, visited, i);
-				dp[root][1] += dp[i][0];
-				dp[root][0] += Math.max(dp[i][1], dp[i][0]);
-			}
-		}
-	}
+    public static Info process(Employee head) {
+        if (head.nexts.isEmpty()) {  // 若为真，说明x是底层员工, 返回这个底层员工的两个信息
+            return new Info(head.happy, 0);
+        }
 
-	public static void main(String[] args) {
-		int[][] matrix = { { 1, 8 }, { 1, 9 }, { 1, 10 } };
-		System.out.println(maxHappy(matrix));
-	}
+        // 最终目的是通过向孩子要信息，整合得到自己的信息
+        int lai = head.happy;  // 自己信息的初值
+        int bu = 0;  // 自己信息的初值
+        for (Employee next : head.nexts) {  // 问它的孩子要信息来整合得到自己的信息
+            Info nextInfo = process(next);
+            lai += nextInfo.buMaxHappy;  // 自己来，孩子就不来
+            bu += Math.max(nextInfo.laiMaxHappy, nextInfo.buMaxHappy);  // 自己不来，孩子可以来，可以不来
+        }
+        // 上面的for循环结束之后，自己的信息整合完毕，返回
+        return new Info(lai, bu);
+    }
+
+    public static int maxHappy(Employee head) {
+        Info headInfo = process(head);
+        return Math.max(headInfo.laiMaxHappy, headInfo.buMaxHappy);
+    }
+
+    public static void main(String[] args) {
+        int maxLevel = 4;
+        int maxHappy = 100;
+        int maxNexts = 7;
+        Employee boss = GenerateHappyTree.genarateBoss(maxLevel, maxNexts, maxHappy);
+        System.out.println(maxHappy(boss));
+    }
 }

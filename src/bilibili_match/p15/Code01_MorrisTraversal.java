@@ -1,17 +1,6 @@
 package bilibili_match.p15;
 
 public class Code01_MorrisTraversal {
-	
-	public static class Node {  // 创建一个类作为二叉树的节点
-		public int value;
-		Node left;
-		Node right;
-
-		public Node(int data) {
-			this.value = data;
-		}
-	}
-
 	// 下面是常见的，标准的递归方式遍历二叉树，每个节点都会到达三次
 	public static void process(Node root) {
 		if (root == null) {
@@ -152,36 +141,6 @@ public class Code01_MorrisTraversal {
 		return pre;
 	}
 
-	// for test -- print tree
-	public static void printTree(Node head) {
-		System.out.println("Binary Tree:");
-		printInOrder(head, 0, "H", 17);
-		System.out.println();
-	}
-
-	public static void printInOrder(Node head, int height, String to, int len) {
-		if (head == null) {
-			return;
-		}
-		printInOrder(head.right, height + 1, "v", len);
-		String val = to + head.value + to;
-		int lenM = val.length();
-		int lenL = (len - lenM) / 2;
-		int lenR = len - lenM - lenL;
-		val = getSpace(lenL) + val + getSpace(lenR);
-		System.out.println(getSpace(height * len) + val);
-		printInOrder(head.left, height + 1, "^", len);
-	}
-
-	public static String getSpace(int num) {
-		String space = " ";
-		StringBuffer buf = new StringBuffer("");
-		for (int i = 0; i < num; i++) {
-			buf.append(space);
-		}
-		return buf.toString();
-	}
-
 	public static void main(String[] args) {
 		Node head = new Node(4);
 		head.left = new Node(2);
@@ -190,8 +149,8 @@ public class Code01_MorrisTraversal {
 		head.left.right = new Node(3);
 		head.right.left = new Node(5);
 		head.right.right = new Node(7);
-		printTree(head);
-		// morrisIn(head);
+		PrintTree.printTree(head);
+		morrisIn(head);
 		// morrisPre(head);
 		// morrisPos(head);
 		// printTree(head);

@@ -61,6 +61,7 @@ public class Code04_MaxHappy {
 		}
 	}
 
+	// 这是B视频讲解的方法，上面写的process1是另一种实现写法，但也是递归，两种做对数器
 	public static Info process(Employee x) {
 		if (x == null) {
 			return new Info(0, 0);

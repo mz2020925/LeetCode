@@ -1,62 +1,38 @@
 package bilibili_match.p15;
 
 public class Code02_MaxDistanceInTree {
+	public static class Info {  // 返回值结构
+		public int maxDistance;
+		public int height;
 
-	public static class Node {  // 二叉树节点
-		public int value;  // 在这个问题中节点的值是没有用的，有用的是节点的个数
-		public Node left;
-		public Node right;
-
-		public Node(int data) {
-			this.value = data;
+		public Info(int dis, int h) {
+			this.maxDistance = dis;
+			this.height = h;
 		}
+	}
+
+	// 递归套路中的递归函数，返回两个信息，最大距离和高度
+	public static Info process(Node head) {
+		// 1.递归终止条件
+		if(head == null) {
+			return new Info(0,0);
+		}
+		// 给孩子提要求，你要给我你的最大距离和你的高度。类似于黑盒。
+		Info leftInfo = process(head.left);
+		Info rightInfo = process(head.right);
+		// 不光只给孩子提要求，自己也要实现这个要求，也是要到信息之后的整合自己的信息，这是最终目的。相当于拆黑盒。
+		int p1 = leftInfo.maxDistance;  // 可能性1，左树两个信息中的最大距离
+		int p2 = rightInfo.maxDistance;  // 可能性2，右树两个信息中的最大距离
+		int p3 = leftInfo.height + 1 + rightInfo.height;  // 可能性3
+		int maxDistance = Math.max(Math.max(p1, p2), p3);  // 三者取最大得到最大距离信息
+		int height  = Math.max(leftInfo.height, rightInfo.height) + 1;  // 不要忘了两个信息中还有高度信息
+
+		// 上面的比较找最大值操作结束之后，自己的信息整合完毕，返回
+		return new Info(maxDistance, height);
 	}
 
 	public static int maxDistance(Node head) {
-		int[] record = new int[1];
-		return posOrder(head, record);
-	}
-	
-	public static class ReturnType{  // 返回值结构
-		public int maxDistance;
-		public int h;
-		
-		public ReturnType(int m, int h) {
-			this.maxDistance = m;;
-			this.h = h;
-		}
-	}
-
-	// 返回两个信息
-	public static ReturnType process(Node head) {
-		// 1.base case
-		if(head == null) {
-			return new ReturnType(0,0);
-		}
-		// 给子树提要求。类似于黑盒。
-		ReturnType leftReturnType = process(head.left);
-		ReturnType rightReturnType = process(head.right);
-		// 不光只给子树提要求，自己也要实现这个要求。相当于拆黑盒。
-		int p1 = leftReturnType.maxDistance;  // 可能性1
-		int p2 = rightReturnType.maxDistance;  // 可能性2
-		int includeHeadDistance = leftReturnType.h + 1 + rightReturnType.h;  // 可能性3
-		int resultDistance = Math.max(Math.max(p1, p2), includeHeadDistance);  // 三者取最大得到最大距离信息
-		int hitself  = Math.max(leftReturnType.h, leftReturnType.h) + 1;  // 不要忘了还有高度信息
-		return new ReturnType(resultDistance, hitself);
-	}
-
-	public static int posOrder(Node head, int[] record) {
-		if (head == null) {
-			record[0] = 0;
-			return 0;
-		}
-		int lMax = posOrder(head.left, record);
-		int maxfromLeft = record[0];
-		int rMax = posOrder(head.right, record);
-		int maxFromRight = record[0];
-		int curNodeMax = maxfromLeft + maxFromRight + 1;
-		record[0] = Math.max(maxfromLeft, maxFromRight) + 1;  // 这是高度信息
-		return Math.max(Math.max(lMax, rMax), curNodeMax);  // 这是三者取最大得到最大距离信息
+		return process(head).maxDistance;
 	}
 
 	public static void main(String[] args) {
@@ -69,6 +45,7 @@ public class Code02_MaxDistanceInTree {
 		head1.right.right = new Node(7);
 		head1.left.left.left = new Node(8);
 		head1.right.left.right = new Node(9);
+		PrintTree.printTree(head1);
 		System.out.println(maxDistance(head1));
 
 		Node head2 = new Node(1);
@@ -80,8 +57,8 @@ public class Code02_MaxDistanceInTree {
 		head2.right.right.right = new Node(7);
 		head2.right.left.left.left = new Node(8);
 		head2.right.right.right.right = new Node(9);
+		PrintTree.printTree(head2);
 		System.out.println(maxDistance(head2));
-
 	}
 
 }
