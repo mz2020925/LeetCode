@@ -1,6 +1,6 @@
-package bilibili_coding_practice.class2_sort;
+package bilibili_coding_practice.p4;
 
-public class class2_small_sum {
+public class small_sum {
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 3, 4, 5};  // 小和：1+(1+2)+(1+2+3)+(1+2+3+4)
         int resSum = smallSum(arr);

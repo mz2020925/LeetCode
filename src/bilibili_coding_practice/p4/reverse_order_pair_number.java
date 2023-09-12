@@ -1,6 +1,6 @@
-package bilibili_coding_practice.class2_sort;
+package bilibili_coding_practice.p4;
 
-public class class2_reverse_order_pair_number {
+public class reverse_order_pair_number {
     public static void main(String[] args) {
         int [] arr = new int[]{1,2,3,4};
         // int[] arr = new int[]{3, 2, 1};
