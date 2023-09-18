@@ -1,9 +1,13 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class test {
     @Test
     public void test01() {
-        int[] arr = new int[]{0, 1, 2, 3, 4, 5};
-        System.out.println(arr[0]);
+        ArrayList<String> arrayList = new ArrayList<>();
+//        arrayList.add("");
+        System.out.println(arrayList);
+        System.out.println(arrayList.size());
     }
 }
