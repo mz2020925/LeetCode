@@ -19,10 +19,11 @@ public class q283_MoveZeroes {
             return;
         }
 
-
-        for (int i = 0; i < nums.length; i++) {
+        int i = 0;
+        while (i < nums.length && nums[i] !=0) i++;
+        int j = i + 1;
+        for (; i < nums.length; i++) {
             if (nums[i] == 0) {
-                int j = i + 1;
                 while (j < nums.length && nums[j] == 0) j++;
                 if (j >= nums.length) break;
                 swap(nums, i, j);
