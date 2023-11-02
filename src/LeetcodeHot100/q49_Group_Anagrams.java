@@ -13,7 +13,11 @@ public class q49_Group_Anagrams {
         System.out.println(groupAnagrams(strs));
     }
 
-
+    /**
+     * 哈希
+     * @param strs
+     * @return
+     */
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> res = Arrays.stream(strs).collect(Collectors.groupingBy(str -> {
             char[] chars = str.toCharArray();
@@ -21,7 +25,7 @@ public class q49_Group_Anagrams {
             return Arrays.toString(chars);
 
         }));
-
+        System.out.println(res);
         return new ArrayList<>(res.values());
 
     }
