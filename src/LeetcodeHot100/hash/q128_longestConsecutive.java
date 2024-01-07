@@ -1,11 +1,11 @@
-package LeetcodeHot100;
+package LeetcodeHot100.hash;
 
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class q128_LongestConsecutive {
+public class q128_longestConsecutive {
     // int[] nums = {0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
     int[] nums = {0,1};
 

@@ -1,10 +1,10 @@
-package LeetcodeHot100;
+package LeetcodeHot100.doublePoint;
 
 import org.junit.Test;
 
 import java.util.Arrays;
 
-public class q283_MoveZeroes {
+public class q283_moveZeroes {
 
     @Test
     public void test() {
