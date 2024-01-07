@@ -1,4 +1,4 @@
-package LeetcodeHot100;
+package LeetcodeHot100.slideWindow;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class q438_Find_Anagrams {
+public class q438_findAnagrams {
     @Test
     public void test() {
         String s = "baa";
@@ -45,7 +45,7 @@ public class q438_Find_Anagrams {
 
             // 判断左边是否需要收缩，注意左右指针式左闭右开，窗口满足长度的时候也需要收缩，因为要滑动，下一个循环又会有一个元素要进来
             while (right - left >= p.length()) {
-                if (valid == need.size()) {
+                if (valid == need.size()) {  // 两个字符串，如果他们两个中的字符相同，并且数目为值
                     res.add(left);
                 }
                 String l = s.substring(left, left + 1);

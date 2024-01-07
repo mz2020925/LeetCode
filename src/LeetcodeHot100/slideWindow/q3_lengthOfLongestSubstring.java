@@ -1,9 +1,9 @@
-package LeetcodeHot100;
+package LeetcodeHot100.slideWindow;
 
 import org.junit.Test;
 import java.util.HashSet;
 
-public class q3_Length_Of_Longest_Substring {
+public class q3_lengthOfLongestSubstring {
     @Test
     public void test() {
         String s = "abcabcbb";

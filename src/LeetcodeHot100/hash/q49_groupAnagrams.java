@@ -1,4 +1,4 @@
-package LeetcodeHot100;
+package LeetcodeHot100.hash;
 
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ import javax.xml.stream.events.Characters;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class q49_Group_Anagrams {
+public class q49_groupAnagrams {
     @Test
     public void test() {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};

@@ -1,10 +1,10 @@
-package LeetcodeHot100;
+package LeetcodeHot100.subString;
 
 import org.junit.Test;
 
 import java.util.HashMap;
 
-public class q560_SubarraySum {
+public class q560_subarraySum {
     @Test
     public void test01() {
         int[] nums = {1};
@@ -82,6 +82,6 @@ public class q560_SubarraySum {
 
     // 滑动窗口
     /**
-     * 这里用
+     * 这里用滑动窗口做不了
      */
 }
