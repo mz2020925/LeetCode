@@ -11,6 +11,7 @@ public class Code07_FindFirstIntersectNode {
 		}
 	}
 
+	// 找到两条链表的相交节点，并返回
 	public static Node getIntersectNode(Node head1, Node head2) {
 		if (head1 == null || head2 == null) {
 			return null;
