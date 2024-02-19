@@ -14,7 +14,7 @@ import org.junit.Test;
  * }
  * }
  */
-public class q160_getIntersectionNode {
+public class q1_getIntersectionNode {
     class ListNode {
         int val;
         ListNode next;

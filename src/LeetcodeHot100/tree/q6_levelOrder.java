@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class q102_levelOrder {
+public class q6_levelOrder {
     class TreeNode {
         int val;
         TreeNode left;
@@ -53,14 +53,14 @@ public class q102_levelOrder {
                 nextEnd = temp.right;
             }
             if (temp == curEnd) {
-                resItem.add(temp.val);
+                resItem.add(temp.val);  // 插入每层的最后一个元素
                 res.add(resItem);
                 resItem = new ArrayList<>();
 
                 curEnd = nextEnd;
                 nextEnd = null;
             } else {
-                resItem.add(temp.val);
+                resItem.add(temp.val);  // 插入每层的元素
             }
         }
         return res;

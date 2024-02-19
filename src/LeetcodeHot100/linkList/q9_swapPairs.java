@@ -3,7 +3,7 @@ package LeetcodeHot100.linkList;
 
 import org.junit.Test;
 
-public class q24_swapPairs {
+public class q9_swapPairs {
     class ListNode {
         int val;
         ListNode next;

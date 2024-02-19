@@ -2,7 +2,7 @@ package LeetcodeHot100.tree;
 
 import org.junit.Test;
 
-public class q543_diameterOfBinaryTree {
+public class q5_diameterOfBinaryTree {
     class TreeNode {
         int val;
         TreeNode left;

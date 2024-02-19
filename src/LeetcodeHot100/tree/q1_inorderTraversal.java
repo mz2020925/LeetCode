@@ -5,7 +5,7 @@ import com.sun.prism.shader.Solid_RadialGradient_REFLECT_AlphaTest_Loader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class q94_inorderTraversal {
+public class q1_inorderTraversal {
     class TreeNode {
         int val;
         TreeNode left;

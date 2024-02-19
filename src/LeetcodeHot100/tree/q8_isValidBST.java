@@ -2,7 +2,7 @@ package LeetcodeHot100.tree;
 
 import sun.reflect.generics.tree.Tree;
 
-public class q98_isValidBST {
+public class q8_isValidBST {
     class TreeNode {
         int val;
         TreeNode left;

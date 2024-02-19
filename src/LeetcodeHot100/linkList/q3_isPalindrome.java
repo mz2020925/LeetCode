@@ -2,7 +2,7 @@ package LeetcodeHot100.linkList;
 
 import org.junit.Test;
 
-public class q234_isPalindrome {
+public class q3_isPalindrome {
 
     public class ListNode {
         int val;

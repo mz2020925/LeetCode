@@ -2,7 +2,7 @@ package LeetcodeHot100.tree;
 
 import org.junit.Test;
 
-public class q108_sortedArrayToBST {
+public class q7_sortedArrayToBST {
     class TreeNode {
         int val;
         TreeNode left;
@@ -32,7 +32,7 @@ public class q108_sortedArrayToBST {
             return null;
         }
 
-        int temp = (end - start) >> 2 + start;
+        int temp = (end - start) >> 2 + start;  // int temp = (end + start) / 2;
         TreeNode node = new TreeNode(nums[temp]);
         node.left = f(nums, start, temp -1);
         node.right = f(nums, temp+1, end);

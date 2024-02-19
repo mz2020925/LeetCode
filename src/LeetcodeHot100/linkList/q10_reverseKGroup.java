@@ -2,7 +2,7 @@ package LeetcodeHot100.linkList;
 
 import org.junit.Test;
 
-public class q25_reverseKGroup {
+public class q10_reverseKGroup {
     class ListNode {
         int val;
         ListNode next;

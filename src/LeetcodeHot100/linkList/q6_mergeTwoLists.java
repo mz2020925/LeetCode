@@ -1,6 +1,6 @@
 package LeetcodeHot100.linkList;
 
-public class q21_mergeTwoLists {
+public class q6_mergeTwoLists {
     class ListNode {
         int val;
         ListNode next;

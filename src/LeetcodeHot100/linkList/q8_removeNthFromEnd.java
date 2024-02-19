@@ -2,7 +2,7 @@ package LeetcodeHot100.linkList;
 
 import org.junit.Test;
 
-public class q19_removeNthFromEnd {
+public class q8_removeNthFromEnd {
     class ListNode {
         int val;
         ListNode next;

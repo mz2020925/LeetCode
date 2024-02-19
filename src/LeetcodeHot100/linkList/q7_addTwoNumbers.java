@@ -2,7 +2,7 @@ package LeetcodeHot100.linkList;
 
 import org.junit.Test;
 
-public class q2_addTwoNumbers {
+public class q7_addTwoNumbers {
     class ListNode {
         int val;
         ListNode next;

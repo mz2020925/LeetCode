@@ -1,7 +1,7 @@
 package LeetcodeHot100.linkList;
 
 
-public class q206_reverseList {
+public class q2_reverseList {
     class ListNode {
         int val;
         ListNode next;
