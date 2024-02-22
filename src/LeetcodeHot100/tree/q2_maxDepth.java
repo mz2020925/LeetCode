@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-public class q104_maxDepth {
+public class q2_maxDepth {
     class TreeNode {
         int val;
         TreeNode left;

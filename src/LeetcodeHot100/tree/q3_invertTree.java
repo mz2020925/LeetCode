@@ -5,9 +5,8 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class q226_invertTree {
-    /*
-    class TreeNode {
+public class q3_invertTree {
+    public class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -24,7 +23,7 @@ public class q226_invertTree {
             this.left = left;
             this.right = right;
         }
-    }*/
+    }
 
     public TreeNode invertTree(TreeNode root) {
         if (root == null){
@@ -54,10 +53,41 @@ public class q226_invertTree {
         TreeNode root = new TreeNode(2);
         root.left = new TreeNode(1);
         root.right = new TreeNode(3);
-        PrintBinaryTree.printTree(root);
+        printTree(root);
         invertTree(root);
-        PrintBinaryTree.printTree(root);
+        printTree(root);
 
     }
 
+    	public static void printTree(TreeNode root) {
+		System.out.println("Binary Tree:");
+		printInOrder(root, 0, "H", 17);
+		System.out.println();
+	}
+
+	public static void printInOrder(TreeNode head, int height, String to, int len) {
+		if (head == null) {
+			return;
+		}
+		printInOrder(head.right, height + 1, "v", len);
+		String val = to + head.val + to;
+		int lenM = val.length();
+		int lenL = (len - lenM) / 2;
+		int lenR = len - lenM - lenL;
+		val = getSpace(lenL) + val + getSpace(lenR);
+		System.out.println(getSpace(height * len) + val);
+		printInOrder(head.left, height + 1, "^", len);
+	}
+
+	public static String getSpace(int num) {
+		String space = " ";
+		StringBuffer buf = new StringBuffer("");
+		for (int i = 0; i < num; i++) {
+			buf.append(space);
+		}
+		return buf.toString();
+	}
+
 }
+
+
