@@ -6,7 +6,25 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class q101_isSymmetric {
+public class q4_isSymmetric {
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 
     // 这个思路不对，因为二叉树是有左右孩子位置的，存在几何对称，我这个思路是使用列表对称，所以是错的。下面举了个反例。
     //        1

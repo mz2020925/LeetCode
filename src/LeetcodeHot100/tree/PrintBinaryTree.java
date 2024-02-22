@@ -3,7 +3,6 @@ package LeetcodeHot100.tree;
 import org.junit.Test;
 
 public class PrintBinaryTree {
-	/*
 	public static class TreeNode {
 		public int val;
 		public TreeNode left;
@@ -13,7 +12,6 @@ public class PrintBinaryTree {
 			this.val = data;
 		}
 	}
-	*/
 
 	public static void printTree(TreeNode root) {
 		System.out.println("Binary Tree:");
